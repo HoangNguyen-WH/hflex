@@ -1,5 +1,8 @@
 package wu.huang.hflex.common.utils;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.lang.reflect.Array;
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -7,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CastHelper {
+    private static final Logger logger = LoggerFactory.getLogger(CastHelper.class);
+
     public static String castObject2String(Object obj) {
         try {
             if (obj == null) {

@@ -2,11 +2,26 @@ spring:
   application:
     name: hflex-service
 
+  datasource:
+    url: jdbc:oracle:thin:@//HOST:1521/ORCLPDB1
+    username: APTWH
+    password: APTWH
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      pool-name: aptwh1-hikari
+      connection-timeout: 30000
+      max-lifetime: 1800000
+
   graphql:
     http:
       path: /graphql
     schema:
       locations: classpath:graphql/
+
+mybatis:
+  config-location: mybatis/mybatis-config.xml
+  mapper-locations: classpath*:mybatis/**/*.xml
 
 server:
   port: 8080

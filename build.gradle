@@ -25,14 +25,31 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
+
+    // Lombok
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
+    // gRPC
     implementation 'net.devh:grpc-spring-boot-starter:3.1.0.RELEASE'
+
+    // graphQL
     implementation 'org.springframework.boot:spring-boot-starter-graphql'
+
+    // log4j2
     implementation 'org.springframework.boot:spring-boot-starter-log4j2'
+
+    // https://mvnrepository.com/artifact/org.springframework.data/spring-data-jdbc
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+
+    // Mybatis
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
+
+    // Connection pool (Hikari)
+    runtimeOnly 'com.zaxxer:HikariCP'
+
+    // Oracle driver
+    runtimeOnly 'com.oracle.database.jdbc:ojdbc8:19.8.0.0'
 
 }
 
