@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+
+	<!-- Khai báo biến -->
+	<Properties>
+		<Property name="LOG_DATE">%d{yyyy-MM-dd HH:mm:ss}</Property>
+		<Property name="LOG_THREAD">[%t]</Property>
+		<Property name="LOG_LEVEL">%-5level</Property>
+		<Property name="LOG_LOGGER">%logger{36}</Property>
+		<Property name="LOG_MDC">[%X{requestId} %X{userId} %X{apiName}]</Property>
+		<Property name="LOG_MSG">%msg%n</Property>
+
+		<!-- Pattern gộp -->
+		<Property name="LOG_PATTERN">${LOG_DATE} ${LOG_THREAD} ${LOG_LEVEL} ${LOG_LOGGER} ${LOG_MDC} - ${LOG_MSG}</Property>
+	</Properties>
+
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="${LOG_PATTERN}"/>
+		</Console>
+
+		<RollingFile name="FileLogger"
+					 fileName="logs/app.log"
+					 filePattern="logs/archive/app-%d{yyyy-MM-dd}-%i.log.gz">
+			<PatternLayout pattern="${LOG_PATTERN}"/>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"/>
+				<SizeBasedTriggeringPolicy size="10 MB"/>
+			</Policies>
+		</RollingFile>
+	</Appenders>
+
+	<Loggers>
+		<Logger name="wu.huang" level="debug" additivity="false">
+			<AppenderRef ref="Console"/>
+			<AppenderRef ref="FileLogger"/>
+		</Logger>
+		<Root level="info">
+			<AppenderRef ref="Console"/>
+			<AppenderRef ref="FileLogger"/>
+		</Root>
+	</Loggers>
+</Configuration>

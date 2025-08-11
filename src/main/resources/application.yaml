@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: hflex-service
+
+  graphql:
+    http:
+      path: /graphql
+    schema:
+      locations: classpath:graphql/
+
+server:
+  port: 8080
+
+grpc:
+  server:
+    port: 8081
