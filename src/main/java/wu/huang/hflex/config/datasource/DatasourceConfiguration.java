@@ -3,6 +3,7 @@ package wu.huang.hflex.config.datasource;
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import wu.huang.hflex.config.param.DatasourceParams;
 
 
 @Configuration

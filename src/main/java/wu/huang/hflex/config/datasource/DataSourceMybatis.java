@@ -20,7 +20,7 @@ import javax.sql.DataSource;
 @ConfigurationProperties(prefix = "mybatis")
 @MapperScan(basePackages = {"wu.huang.hflex.database.mapper"}, sqlSessionFactoryRef = "sqlSessionFactory")
 public class DataSourceMybatis {
-    private String mapperLocationsInq;
+    private String mapperLocations;
     private String configLocation;
 
     @Bean(name = "sqlSessionFactory")
@@ -28,7 +28,7 @@ public class DataSourceMybatis {
         var sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource);
 
-        Resource[] resources = new PathMatchingResourcePatternResolver().getResources(mapperLocationsInq);
+        Resource[] resources = new PathMatchingResourcePatternResolver().getResources(mapperLocations);
         sqlSessionFactoryBean.addMapperLocations(resources);
 
         sqlSessionFactoryBean.setConfigLocation(new ClassPathResource(configLocation));

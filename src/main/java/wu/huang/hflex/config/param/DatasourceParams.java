@@ -1,4 +1,4 @@
-package wu.huang.hflex.config.datasource;
+package wu.huang.hflex.config.param;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
