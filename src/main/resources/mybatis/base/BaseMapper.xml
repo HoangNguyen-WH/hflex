@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="wu.huang.hflex.database.mapper.base.BaseMapper">
+	<select id="executeProc" parameterType="wu.huang.hflex.common.model.DatabaseParam" statementType="CALLABLE">
+		{call FN_API_EWL.EXE_PRC
+			(
+				#{key    	, mode=IN  		, jdbcType=VARCHAR , javaType=STRING},
+				#{jsonData  , mode=IN  		, jdbcType=VARCHAR , javaType=STRING},
+				#{errCode 	, mode=INOUT  	, jdbcType=VARCHAR , javaType=STRING},
+				#{errMsg 	, mode=INOUT  	, jdbcType=VARCHAR , javaType=STRING},
+				#{cursor  	, mode=INOUT 	, jdbcType=CURSOR  , javaType=ResultSet , resultMap=map}
+			)
+		}
+	</select>
+
+	<select id="executeQuery" parameterType="map" resultType="map">
+		${sql}
+	</select>
+</mapper>

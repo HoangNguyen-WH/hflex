@@ -8,7 +8,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
-public class SecurityFilter {
+public class ApiKeySecurityFilter {
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http, ApiKeyFilter apiKeyFilter, ApiKeyAuthProvider provider) throws Exception {
         return http
